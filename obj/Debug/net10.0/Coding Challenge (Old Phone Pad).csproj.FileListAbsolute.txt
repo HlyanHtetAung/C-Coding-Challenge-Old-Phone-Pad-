@@ -1,0 +1,15 @@
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).GeneratedMSBuildEditorConfig.editorconfig
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).AssemblyInfoInputs.cache
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).AssemblyInfo.cs
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).csproj.CoreCompileInputs.cache
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).sourcelink.json
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/bin/Debug/net10.0/Coding Challenge (Old Phone Pad)
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/bin/Debug/net10.0/Coding Challenge (Old Phone Pad).deps.json
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/bin/Debug/net10.0/Coding Challenge (Old Phone Pad).runtimeconfig.json
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/bin/Debug/net10.0/Coding Challenge (Old Phone Pad).dll
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/bin/Debug/net10.0/Coding Challenge (Old Phone Pad).pdb
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).dll
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/refint/Coding Challenge (Old Phone Pad).dll
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).pdb
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/Coding Challenge (Old Phone Pad).genruntimeconfig.cache
+/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/Debug/net10.0/ref/Coding Challenge (Old Phone Pad).dll

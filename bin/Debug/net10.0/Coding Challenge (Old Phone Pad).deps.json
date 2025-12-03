@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Coding Challenge (Old Phone Pad)/1.0.0": {
+        "runtime": {
+          "Coding Challenge (Old Phone Pad).dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Coding Challenge (Old Phone Pad)/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
