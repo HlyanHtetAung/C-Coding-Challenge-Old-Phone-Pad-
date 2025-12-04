@@ -1,93 +1,91 @@
 using System;
 using System.Collections.Generic;
 
-public class PhonePad
+namespace CodingChallenge
 {
-    public static string OldPhonePad(string input)
+    public static class PhonePad
     {
-        if (string.IsNullOrWhiteSpace(input))
-            throw new ArgumentException("Input cannot be empty.");
-
-        if (!input.EndsWith("#"))
-            throw new ArgumentException("Input must end with '#'.");
-
-        // *** Key mapping for old phone keypad ***
-        var keypadMapping = new Dictionary<char, string>
+        public static string OldPhonePad(string input)
         {
-            { '2', "ABC" }, { '3', "DEF" }, { '4', "GHI" }, { '5', "JKL" },
-            { '6', "MNO" }, { '7', "PQRS" }, { '8', "TUV" }, { '9', "WXYZ" }
-        };
+            if (string.IsNullOrEmpty(input))
+                return "";
 
-        string decodedOutput = string.Empty;
-        char previousKey = '\0';
-        int keyPressCount = 0;
+            if (!input.EndsWith("#"))
+                return ""; // tests want safe return, not exception
 
-        foreach (char currentKey in input)
+            var keypadMapping = new Dictionary<char, string>
+            {
+                { '2', "ABC" }, { '3', "DEF" }, { '4', "GHI" }, { '5', "JKL" },
+                { '6', "MNO" }, { '7', "PQRS" }, { '8', "TUV" }, { '9', "WXYZ" }
+            };
+
+            string decodedOutput = "";
+            char previousKey = '\0';
+            int keyPressCount = 0;
+
+            foreach (char currentKey in input)
+            {
+                if (currentKey == '#')
+                {
+                    FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
+                    break;
+                }
+
+                if (currentKey == '*')
+                {
+                    // Delete last character group OR last output letter
+                    if (previousKey != '\0')
+                    {
+                        previousKey = '\0';
+                        keyPressCount = 0;
+                    }
+                    else if (decodedOutput.Length > 0)
+                    {
+                        decodedOutput = decodedOutput[..^1];
+                    }
+
+                    continue;
+                }
+
+                if (currentKey == ' ')
+                {
+                    FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
+                    continue;
+                }
+
+                if (char.IsDigit(currentKey) && keypadMapping.ContainsKey(currentKey))
+                {
+                    if (currentKey == previousKey)
+                    {
+                        keyPressCount++;
+                    }
+                    else
+                    {
+                        FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
+                        previousKey = currentKey;
+                        keyPressCount = 1;
+                    }
+                }
+            }
+
+            return decodedOutput;
+        }
+
+        private static void FinalizePreviousKey(ref char previousKey, ref int keyPressCount, ref string decodedOutput, Dictionary<char, string> keypadMapping)
         {
-            if (currentKey == '#')
+            if (previousKey != '\0')
             {
-                FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
-                break;
-            }
-            if (currentKey == '*')
-            {
-                if (previousKey != '\0')
-                {
-                    previousKey = '\0';
-                    keyPressCount = 0;
-                }
-                else if (decodedOutput.Length > 0)
-                {
-                    decodedOutput = decodedOutput.Substring(0, decodedOutput.Length - 1);
-                }
-
-                continue;
-            }
-
-            if (currentKey == ' ')
-            {
-                // Space: finalize the previous key
-                FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
-                continue;
-            }
-
-            if (char.IsDigit(currentKey) && keypadMapping.ContainsKey(currentKey))
-            {
-                // Multi-tap or new key
-                if (currentKey == previousKey)
-                {
-                    keyPressCount++;
-                }
-                else
-                {
-                  FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
-                    previousKey = currentKey;
-                    keyPressCount = 1;
-                }
-            }
-            else
-            {
-                throw new ArgumentException($"Invalid character '{currentKey}' in input.");
+                decodedOutput += GetLetter(previousKey, keyPressCount, keypadMapping);
+                previousKey = '\0';
+                keyPressCount = 0;
             }
         }
 
-        return decodedOutput;
-    }
-
-    private static void FinalizePreviousKey(ref char previousKey, ref int keyPressCount, ref string decodedOutput, Dictionary<char, string> keypadMapping)
-    {
-        if (previousKey != '\0')
+        private static char GetLetter(char key, int pressCount, Dictionary<char, string> keypadMapping)
         {
-            decodedOutput += GetLetter(previousKey, keyPressCount, keypadMapping);
-            previousKey = '\0';
-            keyPressCount = 0;
+            string letters = keypadMapping[key];
+            int index = (pressCount - 1) % letters.Length;
+            return letters[index];
         }
-    }
-
-    private static char GetLetter(char key, int pressCount, Dictionary<char, string> keypadMapping)
-    {
-        string letters = keypadMapping[key];
-        int index = (pressCount - 1) % letters.Length;
-        return letters[index];
     }
 }

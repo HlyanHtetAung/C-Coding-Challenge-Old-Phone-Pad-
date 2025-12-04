@@ -1,0 +1,15 @@
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.AssemblyInfoInputs.cache
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.AssemblyInfo.cs
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.csproj.CoreCompileInputs.cache
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.sourcelink.json
+/Users/hlyanhtet/Desktop/CodingChallenge/bin/Debug/net10.0/CodingChallenge
+/Users/hlyanhtet/Desktop/CodingChallenge/bin/Debug/net10.0/CodingChallenge.deps.json
+/Users/hlyanhtet/Desktop/CodingChallenge/bin/Debug/net10.0/CodingChallenge.runtimeconfig.json
+/Users/hlyanhtet/Desktop/CodingChallenge/bin/Debug/net10.0/CodingChallenge.dll
+/Users/hlyanhtet/Desktop/CodingChallenge/bin/Debug/net10.0/CodingChallenge.pdb
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.dll
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/refint/CodingChallenge.dll
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.pdb
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/CodingChallenge.genruntimeconfig.cache
+/Users/hlyanhtet/Desktop/CodingChallenge/obj/Debug/net10.0/ref/CodingChallenge.dll

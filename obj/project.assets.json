@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/Coding Challenge (Old Phone Pad).csproj",
-      "projectName": "Coding Challenge (Old Phone Pad)",
-      "projectPath": "/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/Coding Challenge (Old Phone Pad).csproj",
+      "projectUniqueName": "/Users/hlyanhtet/Desktop/CodingChallenge/CodingChallenge.csproj",
+      "projectName": "CodingChallenge",
+      "projectPath": "/Users/hlyanhtet/Desktop/CodingChallenge/CodingChallenge.csproj",
       "packagesPath": "/Users/hlyanhtet/.nuget/packages/",
-      "outputPath": "/Users/hlyanhtet/Desktop/Coding Challenge (Old Phone Pad)/obj/",
+      "outputPath": "/Users/hlyanhtet/Desktop/CodingChallenge/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/hlyanhtet/.nuget/NuGet/NuGet.Config"
