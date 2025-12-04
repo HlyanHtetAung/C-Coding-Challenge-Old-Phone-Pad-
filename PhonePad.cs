@@ -29,15 +29,12 @@ public class PhonePad
                 FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
                 break;
             }
-
             if (currentKey == '*')
             {
-
-                // FIX: backspace must NOT erase the finalized result
-                // Instead: reduce the multi-press (2 -> A, 22 -> B)
                 if (previousKey != '\0')
                 {
-                    keyPressCount = Math.Max(1, keyPressCount - 1);
+                    previousKey = '\0';
+                    keyPressCount = 0;
                 }
                 else if (decodedOutput.Length > 0)
                 {
