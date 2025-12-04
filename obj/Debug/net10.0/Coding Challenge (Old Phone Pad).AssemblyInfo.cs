@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Coding Challenge (Old Phone Pad)")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+606ed30daeaa7b3eb577bd985fe3c564ec7c2147")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18d0dc5134831d6bfcd7fd7d281fc32d1dd57ec4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Coding Challenge (Old Phone Pad)")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Coding Challenge (Old Phone Pad)")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

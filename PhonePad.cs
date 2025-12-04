@@ -11,7 +11,7 @@ public class PhonePad
         if (!input.EndsWith("#"))
             throw new ArgumentException("Input must end with '#'.");
 
-        // Key mapping for old phone keypad
+        // *** Key mapping for old phone keypad ***
         var keypadMapping = new Dictionary<char, string>
         {
             { '2', "ABC" }, { '3', "DEF" }, { '4', "GHI" }, { '5', "JKL" },
@@ -26,44 +26,31 @@ public class PhonePad
         {
             if (currentKey == '#')
             {
-                // Finalize last key press if any
-                if (previousKey != '\0')
-                {
-                    string letters = keypadMapping[previousKey];
-                    int index = (keyPressCount - 1) % letters.Length;
-                    decodedOutput += letters[index];
-                }
+                FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
                 break;
             }
 
             if (currentKey == '*')
             {
-                if (keyPressCount > 0)
+
+                // FIX: backspace must NOT erase the finalized result
+                // Instead: reduce the multi-press (2 -> A, 22 -> B)
+                if (previousKey != '\0')
                 {
-                    // Reduce current multi-tap count
-                    keyPressCount--;
-                    if (keyPressCount == 0)
-                        previousKey = '\0'; // Reset if all presses removed
+                    keyPressCount = Math.Max(1, keyPressCount - 1);
                 }
                 else if (decodedOutput.Length > 0)
                 {
-                    // Remove last finalized character
                     decodedOutput = decodedOutput.Substring(0, decodedOutput.Length - 1);
                 }
+
                 continue;
             }
 
             if (currentKey == ' ')
             {
-                // Space: finalize current key
-                if (previousKey != '\0')
-                {
-                    string letters = keypadMapping[previousKey];
-                    int index = (keyPressCount - 1) % letters.Length;
-                    decodedOutput += letters[index];
-                    previousKey = '\0';
-                    keyPressCount = 0;
-                }
+                // Space: finalize the previous key
+                FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
                 continue;
             }
 
@@ -76,14 +63,7 @@ public class PhonePad
                 }
                 else
                 {
-                    // Finalize previous key if any
-                    if (previousKey != '\0')
-                    {
-                        string letters = keypadMapping[previousKey];
-                        int index = (keyPressCount - 1) % letters.Length;
-                        decodedOutput += letters[index];
-                    }
-
+                  FinalizePreviousKey(ref previousKey, ref keyPressCount, ref decodedOutput, keypadMapping);
                     previousKey = currentKey;
                     keyPressCount = 1;
                 }
@@ -95,5 +75,22 @@ public class PhonePad
         }
 
         return decodedOutput;
+    }
+
+    private static void FinalizePreviousKey(ref char previousKey, ref int keyPressCount, ref string decodedOutput, Dictionary<char, string> keypadMapping)
+    {
+        if (previousKey != '\0')
+        {
+            decodedOutput += GetLetter(previousKey, keyPressCount, keypadMapping);
+            previousKey = '\0';
+            keyPressCount = 0;
+        }
+    }
+
+    private static char GetLetter(char key, int pressCount, Dictionary<char, string> keypadMapping)
+    {
+        string letters = keypadMapping[key];
+        int index = (pressCount - 1) % letters.Length;
+        return letters[index];
     }
 }
